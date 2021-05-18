@@ -1,12 +1,12 @@
-package com.bluff.celebrity.controller;
+package com.bluff.celebrity.admin.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class MainController {
-    @GetMapping("hello")
-    public String hello() {
-        return "hello";
+    @GetMapping("admin")
+    public String index() {
+        return "index";
     }
 }
