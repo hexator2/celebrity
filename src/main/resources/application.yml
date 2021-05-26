@@ -4,13 +4,31 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://celebrity_mysql:3306/celebrity?useSSL=false&characterEncoding=UTF-8&allowPublicKeyRetrieval=true
+    # url: jdbc:mysql://18.216.19.237:3306/celebrytalk?useSSL=false&characterEncoding=UTF-8&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://localhost:3306/celebrytalk?useSSL=false&characterEncoding=UTF-8&allowPublicKeyRetrieval=true
     username: root
     password: root
 
   jpa:
     hibernate:
+      ## 로딩 시점 테이블 드랍 후 다시 생성 (연습 개발시)
       ddl-auto: create
-      database-platform: org.hibernate.dialect.MySQL5Dialect
-      generate-ddel: true
-      show-sql: true
+    properties:
+      ## dialect: org.hibernate.dialect.Oracle10gDialect
+      ## DB가 변경됐을 시, 해당 Dialect로 변경
+      ## show_sql: true   -> 실행 query를 console 에 찍어줌 로그로 찍어주는게 나음
+      hibernate:
+        ## 한줄이 아니라 formating 되서 나타남
+        format_sql: true
+
+#  data:
+#    web:
+#      pageable:
+#        default-page-size: 10
+#        max-page-size: 2000
+
+logging.level:
+  # 실행 쿼리를 로그로 보기
+  org.hibernate.SQL: debug
+  ## 파라미터 바인팅까지 볼 수 잇음
+  org.hibernate.type: trace

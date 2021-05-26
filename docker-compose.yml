@@ -1,20 +1,27 @@
 version: "3"
 services:
-  celebrity_jsp:
+  jsp:
     container_name: celebrity_jsp
     image: hexator/celebrity
     ports:
       - 80:80
     depends_on:
-      - celebrity_mysql
+      - db
+      - redis
 
-  celebrity_mysql:
+  db:
     container_name: celebrity_mysql
     image: mysql:8.0.22
     environment:
-      MYSQL_DATABASE: celebrity
+      MYSQL_DATABASE: celebrytalk
       MYSQL_ROOT_PASSWORD: root
       MYSQL_ROOT_HOST: '%'
     ports:
       - 3306:3306
 
+  redis:
+    container_name: celebrity_redis
+    image: redis:latest
+    command: redis-server
+    ports:
+      - 6379:6379

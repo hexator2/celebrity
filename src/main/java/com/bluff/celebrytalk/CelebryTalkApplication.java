@@ -1,13 +1,13 @@
-package com.bluff.celebrity;
+package com.bluff.celebrytalk;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CelebrityApplication {
+public class CelebryTalkApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(CelebrityApplication.class, args);
+        SpringApplication.run(CelebryTalkApplication.class, args);
     }
 
 }
