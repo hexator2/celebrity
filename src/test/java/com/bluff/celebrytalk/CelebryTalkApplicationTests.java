@@ -1,10 +1,10 @@
-package com.bluff.celebrity;
+package com.bluff.celebrytalk;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CelebrityApplicationTests {
+class CelebryTalkApplicationTests {
 
     @Test
     void contextLoads() {
