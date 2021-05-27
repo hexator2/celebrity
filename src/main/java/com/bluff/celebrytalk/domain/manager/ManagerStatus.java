@@ -13,8 +13,8 @@ import javax.persistence.*;
 @Getter @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class ManagerStatus extends BaseEntity {
-    @Id
-    @GeneratedValue
+
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "manager_status_id")
     private Long id;
 }
