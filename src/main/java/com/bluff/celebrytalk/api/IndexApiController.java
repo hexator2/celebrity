@@ -1,14 +1,14 @@
-package com.bluff.celebrity.api.controller;
+package com.bluff.celebrytalk.api;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class IndexController {
-
+public class IndexApiController {
     @RequestMapping("index")
     public String index() {
-        return "API Test 중입니다.";
+        // adminService.insert();
+        return "API Test";
     }
 
 }
