@@ -9,7 +9,6 @@ import lombok.Setter;
 import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
 
 import static javax.persistence.FetchType.LAZY;
 
