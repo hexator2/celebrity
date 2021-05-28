@@ -27,11 +27,11 @@ public class CelebrationReply extends BaseEntity {
     @Column(name = "celebration_reply_id")
     private Long id;
 
-    @ManyToOne(fetch = LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
 
-    @ManyToOne(fetch = LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "celebration_id")
     private Celebration celebration;
 

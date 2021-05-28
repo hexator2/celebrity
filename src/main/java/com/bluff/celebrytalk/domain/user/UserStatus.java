@@ -26,9 +26,9 @@ public class UserStatus extends BaseEntity {
     @Column(name = "user_status_id")
     private Long id;
 
-    @Column(nullable = false, length = 50)
+    @Column(length = 50, nullable = false)
     private String code;
 
-    @Column(nullable = false, length = 50)
+    @Column(length = 50, nullable = false)
     private String name;
 }
