@@ -2,8 +2,6 @@ package com.bluff.celebrytalk.domain.user;
 
 import com.bluff.celebrytalk.domain.BaseEntity;
 import com.bluff.celebrytalk.domain.auth.Auth;
-import com.bluff.celebrytalk.domain.celebration.Celebration;
-import com.bluff.celebrytalk.domain.celebration.CelebrationReply;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

@@ -6,8 +6,6 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.data.repository.cdi.Eager;
-import org.thymeleaf.standard.expression.Each;
 
 import javax.persistence.*;
 

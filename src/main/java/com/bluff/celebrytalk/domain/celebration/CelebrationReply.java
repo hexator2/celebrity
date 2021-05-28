@@ -10,8 +10,6 @@ import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
 
-import static javax.persistence.FetchType.LAZY;
-
 @Entity
 @Getter @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)

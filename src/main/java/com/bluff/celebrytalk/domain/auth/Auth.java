@@ -1,7 +1,6 @@
 package com.bluff.celebrytalk.domain.auth;
 
-import com.bluff.celebrytalk.domain.*;
-
+import com.bluff.celebrytalk.domain.BaseEntity;
 import com.bluff.celebrytalk.domain.user.User;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -10,7 +9,6 @@ import lombok.Setter;
 import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
-
 import java.sql.Timestamp;
 
 import static javax.persistence.FetchType.LAZY;
