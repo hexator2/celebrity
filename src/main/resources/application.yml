@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 9000
 
 spring:
   datasource:
@@ -20,6 +20,10 @@ spring:
       hibernate:
         ## 한줄이 아니라 formating 되서 나타남
         format_sql: true
+
+  devtools:
+    livereload:
+      enabled: true
 
 #  data:
 #    web:
