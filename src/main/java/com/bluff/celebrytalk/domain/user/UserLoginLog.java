@@ -9,13 +9,29 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "user_login_log")
 @Getter @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Table(
+    name = "user_login_log",
+    indexes = {
+        @Index(columnList = "user_id"),
+        @Index(columnList = "result"),
+        @Index(columnList = "user_id, result")
+    })
 public class UserLoginLog extends BaseEntity {
 
-    @Id
-    @GeneratedValue
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_login_log_id")
     private Long id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    private Short result;
+
+    private String message;
+
+    @Column(name = "ip_address", length = 50)
+    private String ipAddress;
 }

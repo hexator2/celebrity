@@ -1,11 +1,11 @@
-package com.bluff.celebrytalk.domain.system;
+package com.bluff.celebrytalk.domain.celebration;
 
 import com.bluff.celebrytalk.domain.BaseEntity;
-import com.bluff.celebrytalk.domain.manager.Manager;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
 
@@ -14,21 +14,26 @@ import javax.persistence.*;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(
     indexes = {
-        @Index(columnList = "word")
+        @Index(columnList = "depth")
+    },
+    uniqueConstraints = {
+        @UniqueConstraint(columnNames = {"type", "name"})
     })
-public class Slang extends BaseEntity {
+public class Category extends BaseEntity {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "slang_id")
+    @Column(name = "category_id")
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "manager_id")
-    private Manager manager;
+    private String name;
+
+    private String type;
+
+    private Long depth;
+
+    private Long parent;
 
     @Column(name = "is_active", length = 1)
+    @ColumnDefault("1")
     private Short isActive;
-
-    @Column(length = 100)
-    private String word;
 }

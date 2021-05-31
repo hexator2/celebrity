@@ -13,8 +13,14 @@ import javax.persistence.*;
 @Getter @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class FirebaseLog extends BaseEntity {
-    @Id
-    @GeneratedValue
+
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "firebase_log_id")
     private Long id;
+
+    @Column(name = "request_link", length = 200)
+    private String requestLink;
+
+    @Column(name = "response_body", columnDefinition = "TEXT")
+    private String responseBody;
 }

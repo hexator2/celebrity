@@ -1,7 +1,6 @@
 package com.bluff.celebrytalk.domain.celebration;
 
 import com.bluff.celebrytalk.domain.BaseEntity;
-import com.bluff.celebrytalk.domain.user.User;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,33 +13,29 @@ import javax.persistence.*;
 @Getter @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(
-    name = "celebration_reply",
     indexes = {
-        @Index(columnList = "user_id"),
-        @Index(columnList = "celebration_id")
+        @Index(columnList = "type")
+    },
+    uniqueConstraints = {
+        @UniqueConstraint(columnNames = {"type", "word"})
     })
-public class CelebrationReply extends BaseEntity {
+public class Word extends BaseEntity {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "celebration_reply_id")
+    @Column(name = "word_id")
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
-    private User user;
+    @JoinColumn(name = "category_id")
+    private Category category;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "celebration_id")
-    private Celebration celebration;
+    private Long categoryParentId;
 
-    private String message;
+    private String type;
 
-    @Column(name = "is_push", length = 1)
-    @ColumnDefault("0")
-    private Short isPush;
+    private String word;
 
     @Column(name = "is_active", length = 1)
     @ColumnDefault("1")
     private Short isActive;
-
 }
