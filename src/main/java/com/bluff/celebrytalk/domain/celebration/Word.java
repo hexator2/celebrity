@@ -1,7 +1,6 @@
 package com.bluff.celebrytalk.domain.celebration;
 
 import com.bluff.celebrytalk.domain.BaseEntity;
-import com.bluff.celebrytalk.domain.user.User;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,41 +8,34 @@ import lombok.Setter;
 import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
 
 @Entity
 @Getter @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(
     indexes = {
-        @Index(columnList = "title")
+        @Index(columnList = "type")
+    },
+    uniqueConstraints = {
+        @UniqueConstraint(columnNames = {"type", "word"})
     })
-public class Celebration extends BaseEntity {
+public class Word extends BaseEntity {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "celebration_id")
+    @Column(name = "word_id")
     private Long id;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
-    private User user;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
     private Category category;
 
-    private String title;
+    private Long categoryParentId;
 
-    private String message;
+    private String type;
 
-    @Column(name = "is_push", length = 1)
-    @ColumnDefault("0")
-    private Short isPush;
+    private String word;
 
     @Column(name = "is_active", length = 1)
     @ColumnDefault("1")
     private Short isActive;
-
-    @Column(name = "celebration_date")
-    private Timestamp celebrationDate;
 }
