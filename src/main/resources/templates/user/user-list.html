@@ -1,17 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<srcipt>
-    var app = new Vue({
-    el: '#app',
-    data: {
-        product: 'Socks'
-    }
-    });
-</srcipt>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://thymeleaf.org">
+
 <div id="app" class="container-fluid" th:fragment="user-list">
-
     <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800">{{product}}</h1>
-
-
+    <div class="h3 mb-4 text-gray-800" th:text="${user}">shin</div>
 </div>
+</html>

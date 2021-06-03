@@ -1,5 +1,5 @@
 server:
-  port: 9000
+  port: 8080
 
 spring:
   datasource:
@@ -24,6 +24,8 @@ spring:
   devtools:
     livereload:
       enabled: true
+    freemaker:
+      cache: false
 
 #  data:
 #    web:

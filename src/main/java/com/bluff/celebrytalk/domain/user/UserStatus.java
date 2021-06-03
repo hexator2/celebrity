@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Getter @Setter
@@ -20,7 +21,7 @@ import javax.persistence.*;
         @UniqueConstraint(columnNames = {"code"}),
         @UniqueConstraint(columnNames = {"name"})
     })
-public class UserStatus extends BaseEntity {
+public class UserStatus extends BaseEntity implements Serializable {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_status_id")

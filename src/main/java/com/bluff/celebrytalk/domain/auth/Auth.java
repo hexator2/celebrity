@@ -9,6 +9,7 @@ import lombok.Setter;
 import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 import static javax.persistence.FetchType.LAZY;
@@ -20,7 +21,7 @@ import static javax.persistence.FetchType.LAZY;
     indexes = {
         @Index(columnList = "is_hibernated")
     })
-public class Auth extends BaseEntity {
+public class Auth extends BaseEntity implements Serializable {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "auth_id")

@@ -10,6 +10,7 @@ import lombok.Setter;
 import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 import static javax.persistence.FetchType.LAZY;
@@ -26,7 +27,7 @@ import static javax.persistence.FetchType.LAZY;
         @UniqueConstraint(columnNames = {"login_id"}),
         @UniqueConstraint(columnNames = {"email", "login_id"})
     })
-public class Manager extends BaseEntity {
+public class Manager extends BaseEntity implements Serializable {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "manager_id")
@@ -38,7 +39,7 @@ public class Manager extends BaseEntity {
 
     @OneToOne(fetch = LAZY)
     @JoinColumn(name = "manager_status_code", referencedColumnName  = "code")
-    private UserStatus managerStatusCode;
+    private ManagerStatus managerStatusCode;
 
     @Column(name = "login_id", length = 50, nullable = false)
     private String loginId;

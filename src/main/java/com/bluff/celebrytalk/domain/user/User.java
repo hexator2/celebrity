@@ -10,6 +10,8 @@ import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
 
+import java.io.Serializable;
+
 import static javax.persistence.FetchType.LAZY;
 
 @Entity
@@ -25,7 +27,7 @@ import static javax.persistence.FetchType.LAZY;
     uniqueConstraints = {
         @UniqueConstraint(columnNames = {"auth_id"})
     })
-public class User extends BaseEntity {
+public class User extends BaseEntity implements Serializable {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
