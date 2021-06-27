@@ -10,9 +10,4 @@ import org.springframework.web.bind.annotation.RestController;
 public class CelebrationApiController {
     private final CelebrationService celebrationService;
 
-    @GetMapping("/test")
-    public String test(){
-
-        return "";
-    }
 }
